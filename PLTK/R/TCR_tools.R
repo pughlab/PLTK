@@ -174,20 +174,14 @@ Clonetracking.fx <- function(datapath, immunarchobj, mypatient, chain , reporder
 }
 
 
-# datapath: path to mixcr TRB clones
-# plotpath: path to plot directory
-# patient_id: in this format: INS-X-XXX
-# cycleorder: order the plot. In this format. c("SB", "C3B", "C6B", etc)
-# countfrac: either cloneCount or cloneFraction
-## See examples below
 
 #' This clonetrack function is for INSPIRE
-#'
-#' @param datapath 
-#' @param plotpath 
-#' @param patient_id 
-#' @param cycleorder 
-#' @param countfrac 
+#' Hello people!
+#' @param datapath path to mixcr TRB clones
+#' @param plotpath path to plot directory
+#' @param patient_id in this format: INS-X-XXX
+#' @param cycleorder order the plot. In this format. c("SB", "C3B", "C6B", etc)
+#' @param countfrac either cloneCount or cloneFraction
 #'
 #' @return
 #' @export

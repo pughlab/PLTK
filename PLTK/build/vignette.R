@@ -16,10 +16,10 @@ install.packages("~/git/PLTK/PLTK_0.0.0.9000.tar.gz",
                  repos = NULL, type = "source")
 #install.packages("roxygen2")
 
-#detach("package:PLTK", unload=TRUE)
+detach("package:PLTK", unload=TRUE)
 library(PLTK)
 
-
+?clontrack.fx
 
 screen(1)
 par(mar=c(0.5, 4.1, 2, 2.1))
