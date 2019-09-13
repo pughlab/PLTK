@@ -288,4 +288,145 @@ Clonetracking.fx <- function(datapath, immunarchobj, mypatient, chain , reporder
 #    dev.off()    
 }
 
+
+library(ggalluvial)
+library(randomcoloR)
+
+datapath <- "/Users/anabbi/OneDrive - UHN/Documents/INTERCEPT/INSPIRE/"
+plotpath <- "/Users/anabbi/OneDrive - UHN/Documents/INTERCEPT/"
+
+# datapath: path to mixcr TRB clones
+# plotpath: path to plot directory
+# patient_id: in this format: INS-X-XXX
+# cycleorder: order the plot. In this format. c("SB", "C3B", "C6B", etc)
+# countfrac: either cloneCount or cloneFraction
+## See examples below
+
+#' This clonetrack function is for INSPIRE
+#'
+#' @param datapath 
+#' @param plotpath 
+#' @param patient_id 
+#' @param cycleorder 
+#' @param countfrac 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+clontrack.fx <- function(datapath, plotpath, patient_id, 
+                         cycleorder , countfrac){
+  
+  if (!(countfrac %in% c("cloneFraction", "cloneCount"))) {
+    stop("Error: unknown argument ", countfrac, ". Please provide either cloneFraction or cloneCount.")}
+  
+  
+  flelst <- list.files(datapath, recursive = TRUE,
+                       pattern = "CLONES_TRB")
+  
+  # subset to patient_id
+  flelst_pt <- flelst[grepl(patient_id, flelst)]
+  
+  message("list of available files for patient: ", patient_id)
+  print(flelst_pt)     
+  
+  #Compile a big file with patient's mixcr files loaded in
+  i <- 1
+  for (f in flelst_pt){
+    mixcrfle <- read.table(paste(datapath, f, sep = ""), 
+                           header = TRUE, sep = "\t",
+                           stringsAsFactors = FALSE,
+                           na.strings = c("", "NA"))
+    if(i == 1){
+      compldfle <- mixcrfle[!duplicated(mixcrfle$aaSeqCDR3),]
+      compldfle <- cbind(cloneno = row.names(compldfle), 
+                         filename = f, 
+                         compldfle)
+      i <- i + 1   
+    }
+    else{
+      compldfle1 <- mixcrfle[!duplicated(mixcrfle$aaSeqCDR3),]
+      compldfle1 <- cbind(cloneno = row.names(compldfle1), 
+                          filename = f, 
+                          compldfle1)
+      compldfle <- rbind(compldfle, compldfle1)
+      rm(compldfle1)
+    }
+  }
+  
+  #Clean up the sample name. 
+  compldfle$samplename <- gsub(paste(".*","INSPIRE_", sep = ""), "", compldfle$filename)
+  compldfle$samplename <- gsub("_TCR.*", "", compldfle$samplename)  
+  
+  # Subset df
+  CDR3_fraction <- compldfle[, c("samplename","aaSeqCDR3","cloneFraction", "cloneCount")]
+  # Subset to include only clonotypes with more than 0.001 clonal fraction    
+  CDR3_fraction <- CDR3_fraction[CDR3_fraction$cloneFraction > 0.001,]
+  
+  # Number of samples
+  mysamples <- unique(CDR3_fraction$samplename)
+  # Reorder sample name with cycleorder
+  mysamples <-  mysamples[sapply(cycleorder, function(x) { grep(x, mysamples) })]
+  CDR3_fraction$samplename <- factor(CDR3_fraction$samplename, 
+                                     levels = mysamples)
+  
+  #Find recurring clonotypes and order them based on clone count
+  recurring <- unique(CDR3_fraction$aaSeqCDR3[duplicated(CDR3_fraction$aaSeqCDR3)])
+  notrecurring <- CDR3_fraction$aaSeqCDR3[!CDR3_fraction$aaSeqCDR3 %in% recurring]
+  
+  recurring_df <- CDR3_fraction[CDR3_fraction$aaSeqCDR3 %in% recurring,]
+  recurringcdr3_ordered <- unique(recurring_df$aaSeqCDR3[order(recurring_df$cloneCount, decreasing = TRUE)])
+  
+  message("Total number of recurring clonotypes: ")     
+  print(length(recurring))
+  
+  #Assign colors to top 10 recurring clonotypes  
+  myColors <- distinctColorPalette(10)
+  myColors <- c(myColors, rep("white",length(recurring)-10),
+                rep("white",length(notrecurring)))
+  names(myColors) <- c(recurringcdr3_ordered, notrecurring)
+  
+  message("these are what we color: ")  
+  print(myColors[myColors != "white"])
+  
+  p <-  ggplot(CDR3_fraction, aes(x = samplename, 
+                                  y = eval(as.name(countfrac)),
+                                  fill = aaSeqCDR3,
+                                  stratum = aaSeqCDR3,
+                                  alluvium = aaSeqCDR3,
+                                  label = aaSeqCDR3))
+  
+  myp <- p + geom_alluvium(decreasing = FALSE) + 
+    geom_stratum(decreasing = FALSE, stat = "alluvium") + 
+    scale_fill_manual(values = myColors) +
+    theme(axis.title.y = element_text(size = 50),
+          axis.title.x = element_blank(),
+          axis.line = element_line(color = "black"),
+          axis.text = element_text(size = 50),
+          axis.text.x = element_text(angle = 45, hjust = 1)) +
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.background = element_rect(fill = "transparent",colour = NA),
+          legend.key = element_rect(fill = "white", colour = "white"),
+          legend.position = "none",
+          plot.margin = unit(c(0.2,0,0,0),"cm")) + 
+    labs(y = countfrac) 
+  
+  pdf(paste(plotpath, "clonetracking_", patient_id, 
+            countfrac, ".pdf", sep = ""),
+      width = 15, 
+      height = 20,
+      useDingbats = FALSE,
+      onefile = FALSE)       
+  print(myp)  
+  dev.off()       
+}
+
+
+
+
+
+
+
+
 Clonetracking.fx(datapath, TRBs, "CHP_348", "TRB" , c(1:4), plotpath)
