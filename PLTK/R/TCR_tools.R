@@ -175,8 +175,8 @@ Clonetracking.fx <- function(datapath, immunarchobj, mypatient, chain , reporder
 
 
 
-#' This clonetrack function is for INSPIRE
-#' Hello people!
+#' Hello people! 
+#' @description This clonetrack function is for INSPIRE project. Enjoy!
 #' @param datapath path to mixcr TRB clones
 #' @param plotpath path to plot directory
 #' @param patient_id in this format: INS-X-XXX
@@ -187,6 +187,8 @@ Clonetracking.fx <- function(datapath, immunarchobj, mypatient, chain , reporder
 #' @export
 #'
 #' @examples
+#' 
+#' 
 clontrack.fx <- function(datapath, plotpath, patient_id, 
                          cycleorder , countfrac){
   
