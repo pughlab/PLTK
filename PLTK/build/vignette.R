@@ -12,82 +12,13 @@ devtools::document(test.package)
 #devtools::build_vignettes(test.package)
 devtools::build(test.package)
 
-
 install.packages("~/git/PLTK/PLTK_0.0.0.9000.tar.gz",
                  repos = NULL, type = "source")
+#install.packages("roxygen2")
 
-
-detach("package:PLTK", unload=TRUE)
+#detach("package:PLTK", unload=TRUE)
 library(PLTK)
 
-#detach("package:SchramekLOH", unload=TRUE)
-#library(SchramekLOH)
-
-
-demo <- genDemoData()
-sigClusterBreakpoints(demo, 50)
-sigBinBreakpoints(demo, PLTK::bins)
-sigGapDist(demo, gap.type = "telomeres", gap = PLTK::hg19.telomeres)
-sigGapDist(demo, gap.type = "telomeres", gap = PLTK::hg19.telomeres, normalize=TRUE)
-sigGapDist(demo, gap.type = "centromeres", gap = PLTK::hg19.centromeres)
-sigGapDist(demo, gap.type = "centromeres", gap = PLTK::hg19.centromeres, normalize=TRUE)
-sigSegSize(demo)
-sigSegSize(demo, normalize=TRUE)
-sigCnChangepoint(demo, collapse.segs = TRUE)
-sigCnChangepoint(demo, collapse.segs = FALSE)
-
-
-example.expr <- "~/Desktop/zscore_BRCA.txt"
-expr.df <- read.table(example.expr, header=TRUE,
-                      check.names = FALSE, stringsAsFactors = FALSE)
-gr.expr <- sort(makeGRangesFromDataFrame(expr.df, keep.extra.columns = TRUE))
-
-
-example <- "/mnt/work1/users/home2/quever/example.seg"
-example <- "~/Desktop/example.seg"
-seg <- read.table(example, header = TRUE,
-                  check.names = FALSE, stringsAsFactors = FALSE)
-
-#gr1 <- convertToGr(copyNumbersCalled)
-bins10 <- getBinAnnotations(10)
-bins10 <- makeGRangesFromDataFrame(bins10@data, keep.extra.columns = TRUE)
-seqlevelsStyle(bins10) <- 'UCSC'
-
-gr2 <- convertToGr(seg, type='segfile')
-#gr <- aggregateGr(list(gr1, gr2))
-gr.cn <- gr2
-sapply(c("gain", "loss", "all"), function(x) cnMetrics(analysis='wgii', gr=gr.cn, cn.stat=x, copy.neutral=0))
-sapply(c("gain", "loss", "all"), function(x) cnMetrics(analysis='gf', gr=gr.cn, cn.stat=x, copy.neutral=0))
-all.sigs <- runCnSignatures(gr=gr.cn, binsize=50000, bins=PLTK::bins, 
-                            assign.amp.del = FALSE, cn.thresh=0.5, cn.scale=2,
-                            numeric.return=TRUE)
-summarizeSignatures(all.sigs, ids=colnames(elementMetadata(gr.cn)), decompose=FALSE)
-
-
-
-PDIR='/mnt/work1/users/bhklab/Projects/cell_line_clonality/total_cel_list/datasets'
-tad <- file.path(PDIR, '/reference/TAD/TAD_IMR90.txt')
-tad <- read.table(tad, sep="\t", header=FALSE, col.names = c("chr", "start", "end"))
-tad.gr <- makeGRangesFromDataFrame(tad)
-seqlevelsStyle(tad.gr) <- 'UCSC'
-mapped.ref.gr <- mapGrToReference(gr, tad.gr, overlap='mode')
-mapped.ref.gr <- mapGrToReference(gr.cn, bins10, overlap='mode')
-
-
-
-t.chr <- "chr5"
-split.screen(c(3, 1))
-screen(3)
-par(mar=c(2, 4.1, 0.5, 2.1))
-plot.settings <- initializeGrPlot(PLTK::hg19.cytobands, plot.chrom=TRUE,
-                                  plot.cband=TRUE, alpha.factor=3, label.side='bottom',
-                                 target.chr=t.chr)
-
-screen(2)
-par(mar=c(0.5, 4.1, 0.5, 2.1))
-suppressWarnings(plotGrMetadata(gr.cn, plot.settings, col.ids=c(1,2), data.type='cn', 
-                                add.axis=FALSE, axis.mark=4, chr.lines=TRUE,
-                                target.chr=t.chr))
 
 
 screen(1)

@@ -124,124 +124,9 @@ clontrack.fx <- function(datapath, plotpath, chain, patient_id, countfrac){
 
 }
 
-clontrack.fx(datapath, plotpath, "TRB", "348", "cloneFraction")
-
-clontrack.fx(datapath, plotpath, "TRB", "364", "cloneFraction")
-
-
-clontrack.fx(datapath, plotpath, "TRB", "361", "cloneFraction")
-
-
-clontrack.fx(datapath, plotpath, "TRB", "358", "cloneFraction")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-compledfle <- clontrack.fx(datapath, plotpath, "TRB", "348")
-
-compledfle$samplename <- gsub(paste(".*","TRB", sep = ""), "", compledfle$filename)
-compledfle$samplename <- gsub("-PBMC-DNA_2000000.txt", "", compledfle$samplename)
-
-temp <- compledfle[, c("samplename","aaSeqCDR3","cloneFraction")]
-
-temp[ temp$aaSeqCDR3 == "CAASRGC_AKNIQYF",]
-
-ttttemp <- dcast(temp, formula = aaSeqCDR3 ~ samplename)
-
-temporder <- ttttemp[order(rowSums(is.na(ttttemp)), decreasing = F),]
-
-    myColors <- brewer.pal(length(temporder$aaSeqCDR3[rowSums(is.na(temporder)) < 3]),"Paired")
-
-    myColors <- c(myColors, rep("white",length(temporder$aaSeqCDR3[rowSums(is.na(temporder)) >= 3])))
-    names(myColors) <- temporder$aaSeqCDR3
-
-p <-  ggplot(temp, aes(x = samplename, 
-                       y = cloneFraction,
-                       fill = aaSeqCDR3,
-                       stratum = aaSeqCDR3,
-                       alluvium = aaSeqCDR3,
-                       label = aaSeqCDR3))
-myp <- p + geom_alluvium(decreasing = FALSE) + geom_stratum(decreasing = FALSE, stat = "alluvium") + 
-    scale_fill_manual(values = myColors) +
-    theme(legend.position = "none") + mytheme
-
-
-myp
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 library(immunarch)
-
 Clonetracking.fx <- function(datapath, immunarchobj, mypatient, chain , reporder, plotpath){
     
 #Subset to the patient of interest. Should be in this format: CHP_XXX
@@ -288,12 +173,6 @@ Clonetracking.fx <- function(datapath, immunarchobj, mypatient, chain , reporder
 #    dev.off()    
 }
 
-
-library(ggalluvial)
-library(randomcoloR)
-
-datapath <- "/Users/anabbi/OneDrive - UHN/Documents/INTERCEPT/INSPIRE/"
-plotpath <- "/Users/anabbi/OneDrive - UHN/Documents/INTERCEPT/"
 
 # datapath: path to mixcr TRB clones
 # plotpath: path to plot directory
@@ -423,10 +302,3 @@ clontrack.fx <- function(datapath, plotpath, patient_id,
 }
 
 
-
-
-
-
-
-
-Clonetracking.fx(datapath, TRBs, "CHP_348", "TRB" , c(1:4), plotpath)
