@@ -2,10 +2,7 @@
 
 require(ggalluvial)
 library(randomcoloR)
-library(immunarch)
 
-
-source("/Users/anabbi/OneDrive - UHN/R_src/ggplot2_theme.R")
 
 datapath <- "/Users/anabbi/OneDrive - UHN/Documents/INTERCEPT/Data/"
 plotpath <- "/Users/anabbi/OneDrive - UHN/Documents/INTERCEPT/Plots/"
@@ -184,7 +181,7 @@ Clonetracking.fx <- function(datapath, immunarchobj, mypatient, chain , reporder
 #' @param countfrac either cloneCount or cloneFraction
 #'
 #' @return
-#' @export
+#' @export clontrack.fx
 #'
 #' @examples
 #' 
