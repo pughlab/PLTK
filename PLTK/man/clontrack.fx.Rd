@@ -2,25 +2,26 @@
 % Please edit documentation in R/TCR_tools.R
 \name{clontrack.fx}
 \alias{clontrack.fx}
-\title{Hello people!}
+\title{Tracking recurring immune cell clonotypes}
 \usage{
-clontrack.fx(datapath, plotpath, patient_id, cycleorder, countfrac)
+clontrack.fx(datapath, plotpath, chain, filelist, countfrac, clnefrc)
 }
 \arguments{
-\item{datapath}{path to mixcr TRB clones}
+\item{datapath}{path to mixcr clones files}
 
 \item{plotpath}{path to plot directory}
 
-\item{patient_id}{in this format: INS-X-XXX}
+\item{chain}{could be any of: TRA, TRB, TRD, TRG, IGH, IGL, IGK}
 
-\item{cycleorder}{order the plot. In this format. c("SB", "C3B", "C6B", etc)}
+\item{filelist}{a list of files to track clonotypes. Output from list.files()}
 
-\item{countfrac}{either cloneCount or cloneFraction}
+\item{countfrac}{plots either clonal fraction of absolut counts. 
+cloneCount or cloneFraction}
+
+\item{clnefrc}{specify a cut-off from 0 to 1 to track and plot only a subset of clonotypes.
+Useful when you have too many clonotypes to plot.
+Clonal fraction of 0.001 is usually a good starting point.}
 }
 \description{
-This clonetrack function is for INSPIRE project. Enjoy!
-}
-\examples{
-
-
+Hello pugh lab!
 }
