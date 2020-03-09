@@ -9,3 +9,5 @@ install.packages("~/git/PLTK/PLTK_0.0.0.9000.tar.gz",
 library(PLTK)
 
 
+#celllines_list <- immunelistfx("~/git/PLTK/PLTK/data-raw/", "TRB")
+#usethis::use_data(celllines_list)

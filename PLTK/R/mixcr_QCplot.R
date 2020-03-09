@@ -11,8 +11,6 @@
 #' @param plotname name for output plot
 #' @param plotpath path to plot directory
 #'
-#' @return
-#' @export
 #'
 #' @examples
 

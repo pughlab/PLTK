@@ -12,8 +12,6 @@ library(randomcoloR)
 #' @param filelist a list of files to track clonotypes. Output from list.files()
 #' @param totalinframe "total" outputs all CDR3s, "inframe" removes non-productive CDR3s
 #'
-#' @return
-#' @export
 #'
 #' @examples
 
