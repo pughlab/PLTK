@@ -35,7 +35,6 @@ demo.plotLikelihoodRatio <- function(){
 #'
 #' @return
 #' @export
-#' @importFrom scales alpha
 #' 
 #' @examples
 #' demo.plotLikelihoodRatio()
@@ -174,8 +173,6 @@ demo.plotScatterLine <- function(){
 #'
 #' @return
 #' @export
-#' @import vioplot
-#' @importFrom scales alpha
 #' 
 #' @examples demo.plotScatterLine()
 plotScatterLine <- function (groups,

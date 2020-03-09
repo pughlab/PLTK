@@ -6,5 +6,4 @@ devtools::build(test.package)
 install.packages("~/git/PLTK/PLTK_0.0.0.9000.tar.gz",
                  repos = NULL, type = "source")
 
-library(PLTK)
-
+devtools::reload(pkg = c('PLTK'))

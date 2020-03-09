@@ -1,4 +1,4 @@
-library(iNEXT)
+
 
 #' List clone counts for diversity measures
 #' @description This funtion lists read counts (column "cloneCount" on mixcr output)
@@ -43,6 +43,7 @@ immunelistfx <- function(datapath, chain){
 #' Divstats.fx(celllines_list, "TRB", "thisismytest", "~/")
 #'
 Divstats.fx <- function(lst, chain, batchname, outpath){
+  require(iNEXT)
 
   div_stats <- matrix(ncol = 19, nrow = length(lst))
 
@@ -86,8 +87,6 @@ Divstats.fx <- function(lst, chain, batchname, outpath){
             file = paste0(outpath, "divstats_", chain, batchname, ".csv"),
             row.names = TRUE)
 }
-
-
 
 
 

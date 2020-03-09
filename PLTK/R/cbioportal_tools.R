@@ -12,9 +12,6 @@
 #' @param hi Colour for the high LOR (co-occurence)
 #'
 #' @return Plots a heatmap or bubble-heatmap plot for the given ME matrix
-#' @importFrom gplots heatmap.2
-#' @importFrom ggplot2 ggplot aes geom_point scale_colour_gradient2 
-#' scale_size theme theme_bw element_blank
 #' @export
 #'
 #' @examples

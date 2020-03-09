@@ -21,4 +21,4 @@ immunelistfx <- function(datapath, chain){
 
 
 celllines_list <- immunelistfx("~/git/PLTK/PLTK/data-raw/", "TRB")
-usethis::use_data(celllines_list)
+usethis::use_data(celllines_list, overwrite = T)

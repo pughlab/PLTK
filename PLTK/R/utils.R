@@ -6,7 +6,6 @@
 #'
 #' @return
 #' @export
-#' @import GenomicRanges
 #' 
 #' @examples 
 #' demo <- genDemoData(404)
@@ -55,7 +54,6 @@ genDemoData <- function(seed=404){
 #' @param ... 
 #'
 #' @return
-#' @import GenomicRanges
 #' 
 #' @examples
 dataframeToGranges <- function(intdf, 

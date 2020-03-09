@@ -19,6 +19,9 @@ dataframeToGranges(intdf, chr.regex = "^chr(om|omosome)?$",
 
 \item{...}{}
 }
+\value{
+
+}
 \description{
 OUTDATED: Uses a set of complex regex expression to automatically parse the chromosome, start_idx, and end_idx from a dataframe of segments to create a GRanges object. Also accepts standard GRanges arguments that you would normally pass in to define extra information.
 }

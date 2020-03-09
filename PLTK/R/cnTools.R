@@ -4,10 +4,6 @@
 #'
 #' @return A Granges object containing strand-specific genes with EntrezIDs
 #' @export
-#' @import TxDb.Hsapiens.UCSC.hg19.knownGene 
-#' TxDb.Hsapiens.UCSC.hg38.knownGene
-#' TxDb.Hsapiens.UCSC.hg18.knownGene 
-#' GenomicRanges
 #' 
 #' @examples getGenes()
 getGenes <- function(genome.build="hg19"){
@@ -33,8 +29,6 @@ getGenes <- function(genome.build="hg19"){
 #'
 #' @return Annotated GRanges object with gene ids for the input GRanges
 #' @export
-#' @import org.Hs.eg.db GenomicRanges
-#' @importFrom AnnotationDbi mapIds 
 #' 
 #' @examples
 #' annotateSegments(PLTK::genDemoData(), PLTK::getGenes())
@@ -75,8 +69,6 @@ annotateSegments.old <- function(cn.data, genes){
 #'
 #' @return Annotated GRanges object with gene ids for the input GRanges
 #' @export
-#' @import org.Hs.eg.db GenomicRanges
-#' @importFrom AnnotationDbi mapIds
 #' 
 #' @examples 
 #' annotateSegments(PLTK::genDemoData(), PLTK::getGenes())
@@ -131,7 +123,6 @@ annotateSegments <- function(cn.data, genes, mart=NULL, use.mart=FALSE){
 #' @param list.gr [GRangesList]: a list of granges objects or GRangesList
 #'
 #' @return A single GRanges object with each row of the elementMetadata() containing all the samples copy-number values for that segment
-#' @import GenomicRanges
 #' @export
 #'
 #' @examples aggregateGr(list(gr1, gr2))
@@ -175,7 +166,6 @@ aggregateGr <- function(list.gr){
 #' @param col.id Name of sample [Default: SampleX]
 #'
 #' @return A Granges object with one column in the element Metadata() corresponding to the sample
-#' @import GenomicRanges
 #'
 segfileToGr <- function(seg, col.id='SampleX', seg.id='seg.mean'){
   suppressPackageStartupMessages(require(GenomicRanges))
@@ -219,7 +209,6 @@ assignAmpDel <- function(seg.gr, cn.thresh=0.5, cn.scale=0){
 #' @param type [Character]: Specification of data type: "Qcalls", "Qsegmented", or "segfile"
 #'
 #' @return A Granges object with all samples combined into one singular matrix.  All copy-number values are stored in elementMetadata()
-#' @import GenomicRanges QDNAseq
 #' @export
 #'
 convertToGr <- function(cnsegs, type='Unknown', assign.integer=FALSE, ...){
@@ -602,7 +591,6 @@ mapGrToReference <- function(gr, ref.gr, overlap='mode', mode.type='normal'){
 #'
 #' @return A GRanges object of the Target GRanges object with the summarized elementMetadata() from input GRanges
 #' @export
-#' @import intervals
 #'
 overlapGrToReference <- function(gr, ref.gr,  int_ids=c("start", "end"), 
                                  chr_id='chr', overlap){

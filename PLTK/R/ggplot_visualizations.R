@@ -7,7 +7,6 @@
 #' @param layout Matrix specificy layout (cols and rows)
 #'
 #' @return
-#' @importFrom grid grid.newpage pushViewport viewport grid.layout
 #' @export
 #'
 #' @examples 
@@ -52,7 +51,6 @@ multiplot <- function(..., plotlist=NULL, cols=1, layout=NULL) {
 #' @param base_size  Default=18
 #' @param base_family Default='helvetica'
 #'
-#' @importFrom ggthemes theme_foundation
 #' @return Theme for ggplot
 #' @export
 #'

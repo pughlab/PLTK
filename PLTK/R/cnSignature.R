@@ -43,7 +43,6 @@ runCnSignatures <- function(gr, binsize=1000000, bins=PLTK::bins,
 #' @param numeric.return 
 #' @param binsize A set binsize (bp)
 #'
-#' @import GenomicRanges
 #' @export
 #' 
 #' @return \code{segs.list}: A list of genomicRanges objects for genomic regions with continuous segments smaller than binsize
@@ -120,7 +119,6 @@ sigClusterBreakpoints <- function(gr, binsize, numeric.return=FALSE){
 #'   \code{segs}: A list of granges object for the original \code{gr} placed into each \code{bins}
 #'   \code{bins}: The original \code{bins} object with an additional column in the metadata indicating number of breakpoints
 #' @export
-#' @import GenomicRanges
 #' 
 #' @examples
 #'  sigBinBreakpoints(PLTK::genDemoData(), PLTK::bins)
@@ -230,7 +228,6 @@ sigSegSize <- function(gr, normalize=FALSE, numeric.return=FALSE){
 #'
 #' @return Dataframe of copy-number values for each chromosome
 #' @export
-#' @import plyr
 #'
 #' @examples sigCopyNumber(gr, weight=TRUE, normalize=TRUE)
 sigCopyNumber <- function(gr, weight=TRUE, normalize=FALSE, numeric.return=FALSE){
@@ -312,8 +309,6 @@ sigCnChangepoint <- function(gr, collapse.segs=FALSE, numeric.return=FALSE){
 #'
 #' @return
 #' @export
-#' @importFrom mclust Mclust
-#' @importFrom psych describe
 #'
 #' @examples
 summarizeSignatures <- function(sig, ids=NULL, decompose=TRUE,
