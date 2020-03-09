@@ -1,4 +1,4 @@
-#library(iNEXT)
+library(iNEXT)
 
 
 #' List clone counts for diversity measures
