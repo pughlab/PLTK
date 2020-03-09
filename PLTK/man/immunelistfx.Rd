@@ -17,3 +17,8 @@ for dowstream diversity calculations. Note that this function does not include f
 This is just to remove the highly shallow samples which happens quite often if using RNAseq data. This should not cause any issues
 when using the function with captured data.
 }
+\examples{
+immunelistfx("~/git/PLTK/PLTK/data-raw/", "TRB")
+
+
+}

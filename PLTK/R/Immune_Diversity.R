@@ -1,6 +1,5 @@
 library(iNEXT)
 
-
 #' List clone counts for diversity measures
 #' @description This funtion lists read counts (column "cloneCount" on mixcr output)
 #' for dowstream diversity calculations. Note that this function does not include files with only one clone.
@@ -10,7 +9,7 @@ library(iNEXT)
 #' @param datapath path to mixcr files
 #' @param chain any of: TRA, TRB, TRD, TRG, IGH, IGL, IGK
 #'
-#' @example immunelistfx("~/git/PLTK/PLTK/data-raw/", "TRB")
+#' @examples immunelistfx("~/git/PLTK/PLTK/data-raw/", "TRB")
 #'
 #'
 immunelistfx <- function(datapath, chain){
@@ -87,8 +86,6 @@ Divstats.fx <- function(lst, chain, batchname, outpath){
             file = paste0(outpath, "divstats_", chain, batchname, ".csv"),
             row.names = TRUE)
 }
-
-
 
 
 
