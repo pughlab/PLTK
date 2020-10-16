@@ -18,5 +18,9 @@ mixcrQC.multistudy.fx(align_assemble_stats_df, plotname, plotpath,
 }
 \description{
 This function generates series of plots as QC metrics for Cap-TCRseq data from multiple studies.
-Samples are ordered by total sequencing reads within each study. See example_qc_ms.csv for headers in align_assemble_stats_df
+Samples are ordered by total sequencing reads within each study. Numbers on the right are just plot numbers.
+barplots with y-axis labeled as "% values" are values from the plot above normalized by aligned TCR reads. For example,
+barplot below plot number 12 is: ("Clonotypes eliminated by PCR error correction"/"Successfully aligned reads")*100
+See example_qc_ms.csv in raw-data
+for headers in align_assemble_stats_df.
 }
