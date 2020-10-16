@@ -2,7 +2,7 @@
 
 #' Plot Cap-TCRseq QC metrics across multiple studies
 #' @description This function generates series of plots as QC metrics for Cap-TCRseq data from multiple studies.
-#' Samples are ordered by total sequencing reads within each study.
+#' Samples are ordered by total sequencing reads within each study. See example_qc_ms.csv for headers in align_assemble_stats_df
 #'
 #'
 #' @param align_assemble_stats_df a merged file generated from align_stats and assemble_stats file.
