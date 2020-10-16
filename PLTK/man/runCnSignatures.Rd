@@ -4,7 +4,7 @@
 \alias{runCnSignatures}
 \title{cnSignature: Wrapper to run all CN Signatures}
 \usage{
-runCnSignatures(gr, binsize = 1e+06, bins = PLTK::bins,
+runCnSignatures(gr, binsize = 1000000, bins = PLTK::bins,
   gap = PLTK::hg19.centromeres, gap.type = "centromeres",
   assign.amp.del = FALSE, cn.thresh = 0.5, cn.scale = 0, ...)
 }
