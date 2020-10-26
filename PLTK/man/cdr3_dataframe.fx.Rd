@@ -16,6 +16,6 @@ cdr3_dataframe.fx(datapath, chain, filelist, totalinframe)
 \item{totalinframe}{"total" outputs all CDR3s, "inframe" removes non-productive CDR3s}
 }
 \description{
-This function takes a list of files and compiles them in one dataframe 
+This function takes a list of files and compiles them in one dataframe
 for use in plot_clonetracks.fx. Also you can choose to exclude non-productive clonotypes
 }

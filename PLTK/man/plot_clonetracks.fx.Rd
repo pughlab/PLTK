@@ -13,7 +13,7 @@ plot_clonetracks.fx(compldfle, plotpath, chain, countfrac, clnefrc)
 
 \item{chain}{any of: TRA, TRB, TRD, TRG, IGH, IGL, IGK}
 
-\item{countfrac}{plot either clonal fraction of absolute counts 
+\item{countfrac}{plot either clonal fraction of absolute counts
 ("cloneCount" or "cloneFraction")}
 
 \item{clnefrc}{specify a cut-off from 0 to 1 to track and plot only a subset of clonotypes.
@@ -24,8 +24,8 @@ Clonal fraction of 0.001 is usually a good starting point. If you want all just 
 Hello!
 
 
-This function uses the dataframe from cdr3_dataframe.fx function, 
-identifies recurring CDR3s (found in at least two samples) and color them on clones stacked barplot. If no recurring CDR3s are found, 
+This function uses the dataframe from cdr3_dataframe.fx function,
+identifies recurring nucleotideCDR3s (found in at least two samples) and color them on clones stacked barplot. If no recurring CDR3s are found,
 it outputs the clones stacked barplot with no colors.
 
 If you need to clean up samplenames or change the order of samples on the stacked barplot,
