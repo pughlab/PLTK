@@ -55,7 +55,7 @@ Divstats.fx <- function(lst, chain, batchname, outpath){
   rownames(div_stats) <- names(lst)
 
   #Descriptives
-  div_stats[,"TRB"] <- unlist(lapply(lst, length))
+  div_stats[,chain] <- unlist(lapply(lst, length))
   div_stats[,"Reads"] <- unlist(lapply(lst, sum))
   div_stats[,"CPKR"] <- unlist(lapply(lst, function(x){(length(x)/sum(x))*1000}))
   div_stats[,"Average_reads"] <- unlist(lapply(lst, mean))
