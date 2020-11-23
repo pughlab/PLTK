@@ -65,7 +65,7 @@ cdr3_dataframe.fx <- function(datapath, chain, filelist, totalinframe){
                                  !grepl("[*]", compldfle$aaSeqCDR3),]
   #Recalculate cloneFraction for each file
   compldfle_clean$cloneFraction <- NA
-  for(f in unique(compldfle_clean$filename)){
+  for(f in myfiles){
     compldfle_clean$cloneFraction[compldfle_clean$filename == f] <- compldfle_clean$cloneCount[compldfle_clean$filename == f]/sum(compldfle_clean$cloneCount[compldfle_clean$filename == f])
   }
 
