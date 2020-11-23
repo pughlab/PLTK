@@ -63,6 +63,11 @@ cdr3_dataframe.fx <- function(datapath, chain, filelist, totalinframe){
   # remove out-of-frame clonotypes and those with stop codon
   compldfle_clean <- compldfle[!grepl("_", compldfle$aaSeqCDR3) &
                                  !grepl("[*]", compldfle$aaSeqCDR3),]
+  #Recalculate cloneFraction for each file
+  compldfle_clean$cloneFraction <- NA
+  for(f in unique(compldfle_clean$filename)){
+    compldfle_clean$cloneFraction[compldfle_clean$filename == f] <- compldfle_clean$cloneCount[compldfle_clean$filename == f]/sum(compldfle_clean$cloneCount[compldfle_clean$filename == f])
+  }
 
   message("Total productive clonotypes:")
   print(length(compldfle_clean$aaSeqCDR3))
@@ -110,10 +115,7 @@ plot_clonetracks.fx <- function(compldfle, plotpath, chain, countfrac, clnefrc){
   print(mysamples)
 
   # Subset df
-  CDR3_fraction <- compldfle[, c("samplename","nSeqCDR3", "cloneCount")]
-  # Calculate clone Fraction
-  CDR3_fraction$cloneFraction <- NA
-  CDR3_fraction$cloneFraction <- CDR3_fraction$cloneCount/sum(CDR3_fraction$cloneCount)
+  CDR3_fraction <- compldfle[, c("samplename","nSeqCDR3","cloneFraction", "cloneCount")]
 
   # Subset to include only clonotypes with more than specified clonal fraction
   CDR3_fraction <- CDR3_fraction[CDR3_fraction$cloneFraction > clnefrc,]
