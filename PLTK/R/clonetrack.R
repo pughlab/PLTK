@@ -202,7 +202,7 @@ plot_clonetracks.fx <- function(compldfle, plotpath, chain, countfrac, clnefrc){
           plot.margin = unit(c(0.2,0,0,0),"cm")) +
     labs(y = countfrac)
 
-  pdf(paste0(plotpath, "clonetrack_cfDNA", mysamples[1],
+  pdf(paste0(plotpath, "clonetrack_", mysamples[1],
              chain, countfrac, ".pdf"),
       width = 15,
       height = 20,
