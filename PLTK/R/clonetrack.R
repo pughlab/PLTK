@@ -82,7 +82,7 @@ cdr3_dataframe.fx <- function(datapath, chain, filelist, totalinframe){
 #'
 #' This function uses the dataframe from cdr3_dataframe.fx function,
 #' identifies recurring nucleotideCDR3s (found in at least two samples) and color them on clones stacked barplot. If no recurring CDR3s are found,
-#' it outputs the clones stacked barplot with no colors.
+#' it outputs the clones stacked barplot with no colors. If recurring CDR3 are more than 50, it tracks top 10 clonotypes. It recalculates cloneFraction based on cloneCount column in MiXCR output.
 #'
 #' If you need to clean up samplenames or change the order of samples on the stacked barplot,
 #' just modify your dataframe.
@@ -110,7 +110,11 @@ plot_clonetracks.fx <- function(compldfle, plotpath, chain, countfrac, clnefrc){
   print(mysamples)
 
   # Subset df
-  CDR3_fraction <- compldfle[, c("samplename","nSeqCDR3","cloneFraction", "cloneCount")]
+  CDR3_fraction <- compldfle[, c("samplename","nSeqCDR3", "cloneCount")]
+  # Calculate clone Fraction
+  CDR3_fraction$cloneFraction <- NA
+  CDR3_fraction$cloneFraction <- CDR3_fraction$cloneCount/sum(CDR3_fraction$cloneCount)
+
   # Subset to include only clonotypes with more than specified clonal fraction
   CDR3_fraction <- CDR3_fraction[CDR3_fraction$cloneFraction > clnefrc,]
 
