@@ -1,7 +1,7 @@
 
 
 #' List clone counts for diversity measures
-#' @description This funtion lists read counts (column "cloneCount" on mixcr output)
+#' @description This funtion removes non-productive aaCDR3s and lists read counts (column "cloneCount" on mixcr output)
 #' for dowstream diversity calculations. Note that this function does not include files with only one clone.
 #' This is just to remove the highly shallow samples which happens quite often if using RNAseq data. This should not cause any issues
 #' when using the function with captured data.
@@ -13,18 +13,21 @@
 #'
 #'
 immunelistfx <- function(datapath, chain){
-  file_list<- list.files(datapath, pattern = paste("CLONES", chain,
-                                                   sep = "_"))
+  file_list<- list.files(datapath, pattern = paste0("CLONES_", chain))
   readlist = list()
   i <- 1
   for(f in file_list){
-    mixcrfle <- read.table(paste(datapath, f,
-                                 sep = ""),
-                           header = TRUE, sep = "\t",
-                           stringsAsFactors = FALSE,
-                           na.strings = c("", "NA"))
+    message("filename:")
+    print(f)
+    mixcrfle <- read.table(paste0(datapath, f),header = TRUE, sep = "\t",
+                           stringsAsFactors = FALSE, na.strings = c("", "NA"))
     f <- substr(f, 11, nchar(f)-4)
     if(nrow(mixcrfle) <= 1){next()}
+    message("number of non prodcutive CDR3s:")
+    print(length(mixcrfle$aaSeqCDR3[grepl("[*]", mixcrfle$aaSeqCDR3) | grepl("_", mixcrfle$aaSeqCDR3)]))
+
+    mixcrfle <- mixcrfle[!grepl("_", mixcrfle$aaSeqCDR3) & !grepl("[*]", mixcrfle$aaSeqCDR3),]
+    message("nonproductive aaCDR3 removed")
     readlist[[i]] <- mixcrfle$cloneCount
     names(readlist)[i] <- f
     i <- i + 1
