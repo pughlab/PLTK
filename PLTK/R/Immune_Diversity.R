@@ -17,10 +17,10 @@ immunelistfx <- function(datapath, chain){
   readlist = list()
   i <- 1
   for(f in file_list){
-    message("filename:")
-    print(f)
     mixcrfle <- read.table(paste0(datapath, f),header = TRUE, sep = "\t",
                            stringsAsFactors = FALSE, na.strings = c("", "NA"))
+    message("number of clones in file:", f)
+    print(nrow(mixcrfle))
     f <- substr(f, 11, nchar(f)-4)
     if(nrow(mixcrfle) <= 1){next()}
     message("number of non prodcutive CDR3s:")
