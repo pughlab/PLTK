@@ -1,0 +1,20 @@
+﻿Column,Description
+<chain>,"Total count of chain. Column name is name of chain TRA, TRB etc."
+Reads,Total number of reads for chain
+CPKR,Clones per kilo reads. Good estimate for diversity if sample is saturated
+Average_reads,Average reads for clonotypes
+VMR,Variance-Mean Ratio. Good metric for clonality of saturated sample
+Max_reads,Maximum reads for the most dominant clonotype
+Singletons,Number of clonotypes with 1 read. This is to give an estimate of the repertoire tail
+Doubletons,Number of clonotypes with 2 reads. This is to give an estimate of the repertoire tail
+qD,Estimate based on extrapolation to double the sample size. Should be similar to first column for saturared sample
+Sample_Coverage,A rough estimate of saturation. For saturated sample this should be near 1.
+observed_Richness,Sample richness (Diversity of all clonotypes regardless of their dominance). This should be equal to first column (eg TRA).
+estimated_Richness,Estimated richness. For saturated data this should be close to observed richness.
+SE_Richness,Standard error of estimated richness. Saturated samples should have low SE.
+observed_Shannon,Sample Shannon diversity (Diversity of typical clonotypes). Good estimate for diversity if sample is saturated.
+estimated_Shannon,Estimated Shannon diversity. For saturated data this should be close to observed Shannon. A reliable diversity estimate for shallow data (eg RNAseq).
+SE_Shannon,Standard error for estimated Shannon.
+observed_Simpson,Sample Simpson diversity (Diversity of abundant clonotypes).
+estimated_Simpson,"Estimated Simpson. For saturated data this should be close to observed Simpson. For shallow data with sufficient number of clonotypes, can be used as a diversity estimate."
+SE_Simpson,Standard error of estimated Simpson. Saturated samples should have low SE.
