@@ -4,9 +4,18 @@
 \alias{plotScatterLine}
 \title{Visualization: plotScatterLine}
 \usage{
-plotScatterLine(groups, targ.pnt = NA, top.anno = 10, y.lim = NA,
-  withViolin = F, withBox = F, vio.col = "lightblue", connect = T,
-  show.all = T, ...)
+plotScatterLine(
+  groups,
+  targ.pnt = NA,
+  top.anno = 10,
+  y.lim = NA,
+  withViolin = F,
+  withBox = F,
+  vio.col = "lightblue",
+  connect = T,
+  show.all = T,
+  ...
+)
 }
 \arguments{
 \item{groups}{a labeled matrix, dataframe or list containing multiple groups (cols)}
@@ -28,6 +37,9 @@ plotScatterLine(groups, targ.pnt = NA, top.anno = 10, y.lim = NA,
 \item{show.all}{Boolean to show all connecting segments if targ.pnt is provided}
 
 \item{...}{}
+}
+\value{
+
 }
 \description{
 Creates a stripchart, boxplot, or violin plot for each group and then offers the option to link changes between individual elements between groups. If rownames or a labelled vector in a list is provided, it will annotate the top X differences between groups based on taking the max difference for a given element across all groups.

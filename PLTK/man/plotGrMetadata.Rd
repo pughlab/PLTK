@@ -4,9 +4,20 @@
 \alias{plotGrMetadata}
 \title{GR Viz: Main for plotting GRanges objects}
 \usage{
-plotGrMetadata(gr, plot.settings, data.type = "cn", target.chr = NULL,
-  add.axis = TRUE, side = 1, axis.marks = 5, yrange = c(0, 1),
-  y.spacer = 0.1, anno.track = 0, add.annotations = FALSE, ...)
+plotGrMetadata(
+  gr,
+  plot.settings,
+  data.type = "cn",
+  target.chr = NULL,
+  add.axis = TRUE,
+  side = 1,
+  axis.marks = 5,
+  yrange = c(0, 1),
+  y.spacer = 0.1,
+  anno.track = 0,
+  add.annotations = FALSE,
+  ...
+)
 }
 \arguments{
 \item{gr}{[GRanges]: Input GRanges object}
@@ -28,6 +39,9 @@ plotGrMetadata(gr, plot.settings, data.type = "cn", target.chr = NULL,
 \item{y.spacer}{[Numeric]: The amount of space to add between CN tracks; for example, a spacer of 0.1 for one sample in a yrange of c(0,1) will add a 0.1 gap and a 0.05 gap for 2 samples [Default: 0.1]}
 
 \item{...}{}
+}
+\value{
+
 }
 \description{
 A general wrapper for plotting GRanges objects assuming the elementMetadata() contains the numeric values of plotting.  Specifies the analysis/visualization type and it will generate a plot with the aforementioned data

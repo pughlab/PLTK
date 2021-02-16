@@ -4,8 +4,14 @@
 \alias{getGieCol}
 \title{GR Viz: Generates the colours for cytobands}
 \usage{
-getGieCol(gie, gie.col = "black", cen.col = "red", plot.cband = TRUE,
-  alpha.factor = 2, allow.alpha = TRUE)
+getGieCol(
+  gie,
+  gie.col = "black",
+  cen.col = "red",
+  plot.cband = TRUE,
+  alpha.factor = 2,
+  allow.alpha = TRUE
+)
 }
 \arguments{
 \item{gie}{[Char. Vector]: A vector containing all the ordered UCSC cytoband Giemsa colour}
@@ -19,6 +25,9 @@ getGieCol(gie, gie.col = "black", cen.col = "red", plot.cband = TRUE,
 \item{alpha.factor}{[Integer]: How many times to dilute the intensity of the colours, i.e. 2 will dilute the colours 2x [Default: 2]}
 
 \item{allow.alpha}{[Boolean]: scales::alpha doesn't work on Samwise, so this allows the trigger to remove the opacity factor in the hex code}
+}
+\value{
+
 }
 \description{
 GR Viz: Generates the colours for cytobands

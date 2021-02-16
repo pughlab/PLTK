@@ -9,6 +9,9 @@ summarizeNumColumns(df)
 \arguments{
 \item{df}{A dataframe to try and summarize}
 }
+\value{
+
+}
 \description{
 Summarizes all numeric values in a dataframe
 }

@@ -6,6 +6,9 @@
 \usage{
 demo.plotLikelihoodRatio()
 }
+\value{
+
+}
 \description{
 An example piece of code to run the plotLikelihoodRatio() function
 }

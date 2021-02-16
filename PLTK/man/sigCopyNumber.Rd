@@ -4,8 +4,7 @@
 \alias{sigCopyNumber}
 \title{cnSignature: All copy numbers}
 \usage{
-sigCopyNumber(gr, weight = TRUE, normalize = FALSE,
-  numeric.return = FALSE)
+sigCopyNumber(gr, weight = TRUE, normalize = FALSE, numeric.return = FALSE)
 }
 \arguments{
 \item{gr}{[GRanges]: GRanges object}

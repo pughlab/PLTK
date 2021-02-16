@@ -4,8 +4,12 @@
 \alias{summarizeSignatures}
 \title{cnSignature: Summarizes the CN signature list}
 \usage{
-summarizeSignatures(sig, ids = NULL, decompose = TRUE,
-  sig.metric.values = c("mean", "sd", "skew", "kurtosis", "modality"))
+summarizeSignatures(
+  sig,
+  ids = NULL,
+  decompose = TRUE,
+  sig.metric.values = c("mean", "sd", "skew", "kurtosis", "modality")
+)
 }
 \arguments{
 \item{sig}{[List]: The returned value from runCnSignatures() with numeric.return=TRUE}
@@ -13,6 +17,9 @@ summarizeSignatures(sig, ids = NULL, decompose = TRUE,
 \item{ids}{[Char. Vector]: Vector of all sample names}
 
 \item{sig.metric.values}{[Char. Vector]: All values to be returned from describe and mclust}
+}
+\value{
+
 }
 \description{
 Works with the return list from runCnSignatures() when numeric.return=TRUE.  Will summarize this into a matrix

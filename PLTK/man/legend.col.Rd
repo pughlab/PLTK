@@ -11,6 +11,9 @@ legend.col(col, lev)
 
 \item{lev}{Levels of your data}
 }
+\value{
+
+}
 \description{
 Insanely handy function to create a legend obtained from https://aurelienmadouasse.wordpress.com/2012/01/13/legend-for-a-continuous-color-scale-in-r/
 }

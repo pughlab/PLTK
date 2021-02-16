@@ -4,9 +4,17 @@
 \alias{runCnSignatures}
 \title{cnSignature: Wrapper to run all CN Signatures}
 \usage{
-runCnSignatures(gr, binsize = 1e+06, bins = PLTK::bins,
-  gap = PLTK::hg19.centromeres, gap.type = "centromeres",
-  assign.amp.del = FALSE, cn.thresh = 0.5, cn.scale = 0, ...)
+runCnSignatures(
+  gr,
+  binsize = 1e+06,
+  bins = PLTK::bins,
+  gap = PLTK::hg19.centromeres,
+  gap.type = "centromeres",
+  assign.amp.del = FALSE,
+  cn.thresh = 0.5,
+  cn.scale = 0,
+  ...
+)
 }
 \arguments{
 \item{gr}{[GRanges]: GRanges object with copy-number in the elementMetadata().  Tested on output from convertToGr()}

@@ -4,8 +4,13 @@
 \alias{overlapGrToReference}
 \title{cnTools: Maps one GRanges objec to another (Overlap)}
 \usage{
-overlapGrToReference(gr, ref.gr, int_ids = c("start", "end"),
-  chr_id = "chr", overlap)
+overlapGrToReference(
+  gr,
+  ref.gr,
+  int_ids = c("start", "end"),
+  chr_id = "chr",
+  overlap
+)
 }
 \arguments{
 \item{gr}{[GRanges]: Input GRanges object containing copy-number elementMetadata()}

@@ -4,8 +4,16 @@
 \alias{addCytobands}
 \title{GR Viz: Plotting function to add chromosome cytobands}
 \usage{
-addCytobands(s.idx, e.idx, bot.idx = 0.1, top.idx = 0.9,
-  chr.id = "NA", label.side = "top", cytoband.chr = NA, ...)
+addCytobands(
+  s.idx,
+  e.idx,
+  bot.idx = 0.1,
+  top.idx = 0.9,
+  chr.id = "NA",
+  label.side = "top",
+  cytoband.chr = NA,
+  ...
+)
 }
 \arguments{
 \item{s.idx}{[Int. Vector]: All the start x-coords for cytoband/centromere segments}
@@ -21,6 +29,9 @@ addCytobands(s.idx, e.idx, bot.idx = 0.1, top.idx = 0.9,
 \item{label.side}{[Character]: Whether to add the chromosome label above ("top") or below ("bottom") the cytobands}
 
 \item{...}{}
+}
+\value{
+
 }
 \description{
 Adds the rectangles for each chromosomal cytobadn and centromeres

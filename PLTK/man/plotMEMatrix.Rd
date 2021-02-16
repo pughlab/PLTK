@@ -4,8 +4,15 @@
 \alias{plotMEMatrix}
 \title{Plots Mutual exclusivity heatmaps}
 \usage{
-plotMEMatrix(mat, min = -0.5, max = 0.5, step = 0.01,
-  lo = "#2c7bb6", mid = "white", hi = "#1a9641")
+plotMEMatrix(
+  mat,
+  min = -0.5,
+  max = 0.5,
+  step = 0.01,
+  lo = "#2c7bb6",
+  mid = "white",
+  hi = "#1a9641"
+)
 }
 \arguments{
 \item{mat}{The matrix from genMEMatrix, or the table from table.tsv}

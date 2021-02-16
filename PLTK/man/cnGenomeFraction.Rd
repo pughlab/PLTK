@@ -4,8 +4,7 @@
 \alias{cnGenomeFraction}
 \title{cnTools: Wrapper for copy-number metrics}
 \usage{
-cnGenomeFraction(analysis, gr, cn.stat = "all", copy.neutral,
-  cn.variance)
+cnGenomeFraction(analysis, gr, cn.stat = "all", copy.neutral, cn.variance)
 }
 \arguments{
 \item{analysis}{}

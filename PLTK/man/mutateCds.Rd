@@ -4,8 +4,7 @@
 \alias{mutateCds}
 \title{mutateCds}
 \usage{
-mutateCds(Indexed_Seq, Start_Position, End_Position, Variant_Type,
-  Alt_Allele)
+mutateCds(Indexed_Seq, Start_Position, End_Position, Variant_Type, Alt_Allele)
 }
 \arguments{
 \item{Indexed_Seq}{An Indexed and named vector of CDS sequences
@@ -21,6 +20,9 @@ position.}
 \item{Alt_Allele}{Alternate allele to be added}
 
 \item{Chromosome}{Chromosome}
+}
+\value{
+
 }
 \description{
 Given a CDS data frame and a mutation, return the Amino-Acid

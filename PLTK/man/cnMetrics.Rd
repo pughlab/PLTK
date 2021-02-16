@@ -4,8 +4,13 @@
 \alias{cnMetrics}
 \title{cnTools: Wrapper for copy-number metrics}
 \usage{
-cnMetrics(analysis = NA, gr = NULL, cn.stat = "all",
-  copy.neutral = 0, cn.variance = 0)
+cnMetrics(
+  analysis = NA,
+  gr = NULL,
+  cn.stat = "all",
+  copy.neutral = 0,
+  cn.variance = 0
+)
 }
 \arguments{
 \item{analysis}{[Character]:  The analysis to perform: "pga" percent genome altered, "wgii" for wGII scores (genomic fraction normalized for chromosome), "pga.wgii" for both,}

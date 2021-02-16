@@ -4,9 +4,13 @@
 \alias{dataframeToGranges}
 \title{utils: dataframeToGranges}
 \usage{
-dataframeToGranges(intdf, chr.regex = "^chr(om|omosome)?$",
+dataframeToGranges(
+  intdf,
+  chr.regex = "^chr(om|omosome)?$",
   start.regex = "^(loc|seg)?(.|_)?start(s|_idx)?$",
-  end.regex = "^(loc|seg)?(.|_)?end(s|_idx)?$", ...)
+  end.regex = "^(loc|seg)?(.|_)?end(s|_idx)?$",
+  ...
+)
 }
 \arguments{
 \item{intdf}{An dataframe containing segment intervals}

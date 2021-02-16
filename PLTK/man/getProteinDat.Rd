@@ -4,8 +4,14 @@
 \alias{getProteinDat}
 \title{getProteinDat}
 \usage{
-getProteinDat(gene, edb, bsg, txid = NULL, domain.src = "pfam",
-  default.longest = TRUE)
+getProteinDat(
+  gene,
+  edb,
+  bsg,
+  txid = NULL,
+  domain.src = "pfam",
+  default.longest = TRUE
+)
 }
 \arguments{
 \item{gene}{Gene of interest in HUGO format (e.g., MTOR)}
@@ -17,6 +23,9 @@ getProteinDat(gene, edb, bsg, txid = NULL, domain.src = "pfam",
 \item{domain.src}{Protein feature databse, only pfam supported at this time (Default: pfam)}
 
 \item{default.longest}{Selects the longest ENST txid as the canonical txid (Default: TRUE)}
+}
+\value{
+
 }
 \description{
 Retrieves the protein structure and features from the ensembldb database.

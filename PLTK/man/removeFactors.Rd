@@ -9,6 +9,9 @@ removeFactors(df)
 \arguments{
 \item{df}{}
 }
+\value{
+
+}
 \description{
 Converts factors to numeric or character in a data frame
 }

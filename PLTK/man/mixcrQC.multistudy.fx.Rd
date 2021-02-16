@@ -4,8 +4,7 @@
 \alias{mixcrQC.multistudy.fx}
 \title{Plot Cap-TCRseq QC metrics across multiple studies}
 \usage{
-mixcrQC.multistudy.fx(align_assemble_stats_df, plotname, plotpath,
-  sampletype)
+mixcrQC.multistudy.fx(align_assemble_stats_df, plotname, plotpath, sampletype)
 }
 \arguments{
 \item{align_assemble_stats_df}{a merged file generated from align_stats and assemble_stats file.}

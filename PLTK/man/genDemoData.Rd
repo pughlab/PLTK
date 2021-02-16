@@ -9,6 +9,9 @@ genDemoData(seed = 404)
 \arguments{
 \item{seed}{Set the random seed [default: 404]}
 }
+\value{
+
+}
 \description{
 Generates a random granges object to be used for demo purposes when trying out the cnSignature functions
 }

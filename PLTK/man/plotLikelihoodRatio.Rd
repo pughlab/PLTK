@@ -4,9 +4,19 @@
 \alias{plotLikelihoodRatio}
 \title{Visualization: plotLikelihoodRatio}
 \usage{
-plotLikelihoodRatio(groups, xmat, f1col = "black", f2col = "red",
-  gen.plot = TRUE, upp.y = 2, low.y = -0.2, parmar = c(5.1, 4.1,
-  4.1, 4.1), addSegments = T, col.idx = NA, ...)
+plotLikelihoodRatio(
+  groups,
+  xmat,
+  f1col = "black",
+  f2col = "red",
+  gen.plot = TRUE,
+  upp.y = 2,
+  low.y = -0.2,
+  parmar = c(5.1, 4.1, 4.1, 4.1),
+  addSegments = T,
+  col.idx = NA,
+  ...
+)
 }
 \arguments{
 \item{groups}{A list of numerical vectors (groups) or a matrix/dataframe with each column being its own group}
@@ -30,6 +40,9 @@ plotLikelihoodRatio(groups, xmat, f1col = "black", f2col = "red",
 \item{col.idx}{The index of the two columns to use if given a dataframe/matrix with more than 2 columns}
 
 \item{...}{Passed into density() and plot() function}
+}
+\value{
+
 }
 \description{
 Creates a KDE curve for two datasets and calculates the likelihood ratio between the curves by calculating the natural log-ratio of point-probability estimates between the two datasets. Originally used to quantify the differences in drug-sensitivity for a given cell line (REH) between two datasets (CCLE and GDSC) for paclitaxel.

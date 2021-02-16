@@ -12,7 +12,7 @@ immunelistfx(datapath, chain)
 \item{chain}{any of: TRA, TRB, TRD, TRG, IGH, IGL, IGK}
 }
 \description{
-This funtion lists read counts (column "cloneCount" on mixcr output)
+This funtion removes non-productive aaCDR3s and lists read counts (column "cloneCount" on mixcr output)
 for dowstream diversity calculations. Note that this function does not include files with only one clone.
 This is just to remove the highly shallow samples which happens quite often if using RNAseq data. This should not cause any issues
 when using the function with captured data.

@@ -15,6 +15,9 @@ plotProteinStructure(pdat, st.range, end.range, cex.val = 0.7)
 
 \item{cex.val}{CEX value for the writing}
 }
+\value{
+
+}
 \description{
 Plots the top protein structure data track
 }

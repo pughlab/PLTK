@@ -4,8 +4,14 @@
 \alias{chooseTranscript}
 \title{chooseTranscript}
 \usage{
-chooseTranscript(edb, gene, Chromosome, Start_Position, End_Position,
-  default.longest = TRUE)
+chooseTranscript(
+  edb,
+  gene,
+  Chromosome,
+  Start_Position,
+  End_Position,
+  default.longest = TRUE
+)
 }
 \arguments{
 \item{edb}{Ensembl DB R package, v86=GRCh38, v75=GRCh37 (Default: EnsDb.Hsapiens.v86)}
@@ -19,6 +25,9 @@ chooseTranscript(edb, gene, Chromosome, Start_Position, End_Position,
 \item{End_Position}{Mutation end position}
 
 \item{default.longest}{Selects the longest ENST txid as the canonical txid (Default: TRUE)}
+}
+\value{
+
 }
 \description{
 Select a single transcript using a gene name or mutation locus selection method

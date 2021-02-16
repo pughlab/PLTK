@@ -13,6 +13,9 @@ getRleIdx(x, col.id = NA, na.val = -100)
 
 \item{na.val}{Default value to set NAs too so RLE indexing doesn't break}
 }
+\value{
+
+}
 \description{
 Similar to the rle() function, but gives start, end and NA indices on top of the existing "length" and "values". Easily viewed using str() on the return object().
 }

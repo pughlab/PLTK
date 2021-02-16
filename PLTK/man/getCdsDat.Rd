@@ -13,6 +13,9 @@ getCdsDat(txid, edb, gdb)
 
 \item{gdb}{genome sequence database (Default: BSgenome.Hsapiens.UCSC.hg38)}
 }
+\value{
+
+}
 \description{
 For a given transcript, return the coding sequence
 }

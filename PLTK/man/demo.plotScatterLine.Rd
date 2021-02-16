@@ -6,6 +6,9 @@
 \usage{
 demo.plotScatterLine()
 }
+\value{
+
+}
 \description{
 An example piece of code to run the plotScatterLine() function
 }

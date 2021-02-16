@@ -15,6 +15,9 @@ multiplot(..., plotlist = NULL, cols = 1, layout = NULL)
 
 \item{layout}{Matrix specificy layout (cols and rows)}
 }
+\value{
+
+}
 \description{
 As function states, plot multiple plots onto one figure
 }

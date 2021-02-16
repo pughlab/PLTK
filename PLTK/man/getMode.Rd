@@ -9,6 +9,9 @@ getMode(n, na.rm = FALSE)
 \arguments{
 \item{n}{[Vector]: A vector of numbers elements to calculate the mode}
 }
+\value{
+
+}
 \description{
 utils: Calculates the mode
 }
